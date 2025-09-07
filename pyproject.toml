@@ -1,0 +1,15 @@
+[project]
+name = "pypio"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "esptool>=5.0.2",
+    "mpremote>=1.26.0",
+    "pip>=25.2",
+    "platformio>=6.1.18",
+    "pyserial>=3.5",
+    "thonny>=4.1.7",
+    "ymodem>=1.5.1",
+]
