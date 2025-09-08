@@ -8,9 +8,11 @@ def setup_environment():
     """Set up environment variables for PlatformIO""" 
     current_dir = os.path.dirname(os.path.abspath(__file__)) #where script resides
 
-    # Requires Git
-    git_path = r"E:\windows\PortableGit\bin"
-    os.environ["PATH"] = git_path + os.pathsep + os.environ.get("PATH", "")
+    # Prepend Git to PATH here as direnv fail safe to fallback on
+    if sys.platform.startswith("win"):
+        os.environ["PATH"] = r"E:\windows\PortableGit\bin" + os.pathsep + os.environ.get("PATH", "") # Windows
+    elif sys.platform.startswith("linux"):
+        os.environ["PATH"] = r"/mnt/e/windows/PortableGit/bin" + os.pathsep + os.environ.get("PATH", "") # Linux
     # Set PlatformIO environment variables here as direnv fail safe to fallback on
     os.environ["PLATFORMIO_HOME_DIR"] = os.path.join(current_dir, "./.platformio")
     if sys.platform.startswith("win"):
