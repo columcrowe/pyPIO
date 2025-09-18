@@ -8,20 +8,6 @@ def setup_environment():
     """Set up environment variables for PlatformIO""" 
     current_dir = os.path.dirname(os.path.abspath(__file__)) #where script resides
 
-    # Prepend Git to PATH here as direnv fail safe to fallback on
-    if sys.platform.startswith("win"):
-        os.environ["PATH"] = r"E:\windows\PortableGit\bin" + os.pathsep + os.environ.get("PATH", "") # Windows
-    elif sys.platform.startswith("linux"):
-        os.environ["PATH"] = r"/mnt/e/windows/PortableGit/bin" + os.pathsep + os.environ.get("PATH", "") # Linux
-    # Set PlatformIO environment variables here as direnv fail safe to fallback on
-    os.environ["PLATFORMIO_HOME_DIR"] = os.path.join(current_dir, "./.platformio")
-    if sys.platform.startswith("win"):
-        os.environ["PLATFORMIO_PYTHON_EXE"] = os.path.join(current_dir, "./.venv", "Scripts", "python.exe") # Windows
-    elif sys.platform.startswith("linux"):
-        os.environ["PLATFORMIO_PYTHON_EXE"] = os.path.join(current_dir, "./.venv", "bin", "python.exe") # Linux
-    os.environ["UV_PYTHON_INSTALL_DIR"] = os.path.join(current_dir, "./uv-python")
-    os.environ["PYTHONIOENCODING"] = "utf-8"
-
 def run_command(command):
     try:
         result = subprocess.run(command, check=True, text=True)

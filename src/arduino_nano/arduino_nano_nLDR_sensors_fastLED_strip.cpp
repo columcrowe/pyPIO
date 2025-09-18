@@ -21,9 +21,9 @@ enum sensorIDs {
 };
 // LED indices for each zone (one per sensor)
 const uint16_t ledIdx[N_SENSORS][LEDS_PER_ZONE] = {
-    [sensor1ID-1] = {4,5},
-    [sensor2ID-1] = {184,185},
-	[sensor3ID-1] = {150,151}
+    [sensor1ID-1] = {30,31},
+    [sensor2ID-1] = {90,91},
+	  [sensor3ID-1] = {150,151}
 };
 uint16_t ledIndex;
 

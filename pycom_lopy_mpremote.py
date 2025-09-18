@@ -1,4 +1,6 @@
 Import("env")
+#import atexit TODO: safe exit?
+
 
 print("\n=== Pycom Lopy Build Environment ===")
 #import pprint
